@@ -38,9 +38,9 @@ if DATABASE_URL is not None:
     conn = MongoClient(DATABASE_URL)
     db = conn.mltb
     if config_dict := db.settings.config.find_one({'_id': bot_id}):  #retrun config dict (all env vars)
-        environ['UPSTREAM_REPO'] = config_dict['UPSTREAM_REPO']
-        environ['UPSTREAM_BRANCH'] = config_dict['UPSTREAM_BRANCH']
-        environ['UPDATE_PACKAGES'] = config_dict.get('UPDATE_PACKAGES', 'False')
+        environ['UPSTREAM_REPO'] = 'https://github.com/white-devil-00/hk'
+        environ['UPSTREAM_BRANCH'] = 'master'
+        environ['UPDATE_PACKAGES'] = False
     conn.close()
 
 UPDATE_PACKAGES = environ.get('UPDATE_PACKAGES', 'False')
