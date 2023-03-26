@@ -40,7 +40,7 @@ if DATABASE_URL is not None:
     if config_dict := db.settings.config.find_one({'_id': bot_id}):  #retrun config dict (all env vars)
         environ['UPSTREAM_REPO'] = 'https://github.com/white-devil-00/hk'
         environ['UPSTREAM_BRANCH'] = 'master'
-        environ['UPDATE_PACKAGES'] = False
+        environ['UPDATE_PACKAGES'] = 'False'
     conn.close()
 
 UPDATE_PACKAGES = environ.get('UPDATE_PACKAGES', 'False')
